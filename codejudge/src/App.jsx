@@ -27,7 +27,11 @@ function App() {
        if(id==='experience-filter'){
          filteredData=data.filter((e)=>e.experience.includes(value));
         }
-
+        if(id==='role-filter'){
+          if(id==="technology-filter"){
+              filteredData=data.filter((e)=>e.technology.includes(value));
+          }
+          }
         console.log("filter",filteredData)
         setSelect(filteredData);
         console.log(value);
