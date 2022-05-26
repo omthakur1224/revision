@@ -21,6 +21,6 @@ store.dispatch(addCount(2));
 console.log(store.getState())
 // console.log(store.getState())
 // store.dispatch({"type":"ADD_COUNT","payload":1})
-// store.dispatch({"type":"ADD_TODO","payload":{title:"BreakFast",status:false}})
+store.dispatch({"type":"ADD_TODO","payload":{title:"BreakFast"}})
 // store.dispatch({"type":"ADD_TODO","payload":{title:"dinner",status:false}})
 // console.log("afterupdate",store.getState())
