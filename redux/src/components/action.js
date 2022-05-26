@@ -1,17 +1,26 @@
-import { ADD_COUNT, ADD_TODO } from "./actionTypes.js";
+import { INC, ADD_TODO, DEC } from "./actionTypes.js";
 
 // action creater
 
 export const addCount=(payload)=>{
     return {
-        type:ADD_COUNT,
+        type:INC,
         payload
     }
 }
+export const reduceCount=(payload)=>{
+    return {
+        type:DEC,
+        payload
+    }
+}
+
 export const addTodo=(payload)=>{
     return{
         type:ADD_TODO,
-        status:false,
-        payload
+        payload:{
+            title:payload,
+            status:false
+        }
     }
 }
