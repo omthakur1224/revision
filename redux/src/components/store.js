@@ -8,6 +8,7 @@ const initState={
 }
 
 export const store=createStore(reducer,initState);
-
-// console.log(store.getState());
-console.log("store",store.getState());
+store.subscribe(()=>{
+    console.log("subscribe",store.getState());
+})
+// console.log("store",store.getState());

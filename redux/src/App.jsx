@@ -1,16 +1,25 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { store } from './components/store'
-
+import { addCount } from './components/action';
+import { useDispatch, useSelector } from 'react-redux'
 function App() {
   // const [count, setCount] = useState(0)
-  const {counter}=store.getState();
+  
+  const dispatch=useDispatch();
+
+  const counter=useSelector((store)=>store.counter)
+
+  const handleClick=(value)=>{
+    
+      dispatch(addCount(value))
+  }
+
   return (
     <div className="App">
         <h1>Counter:{counter}</h1>
-        <button>INC</button>
-        <button>DEC</button>
+        <button onClick={()=>handleClick(1)}>INC</button>
+        <button onClick={()=>handleClick(-1)}>DEC</button>
     </div>
   )
 }
