@@ -5,10 +5,11 @@ const app=express();
 
 app.use(express.json());
 
-app.post('/add-country',(req,res)=> { addCountry})
-
+app.post('/add-city',(req,res)=> { addCountry});
+app.post('/add-country',(req,res)=> { addCountry});
 app.listen(8080, async function(){
-    try{
+ 
+   try{
         await connect();
         console.log("you are connected")
     }

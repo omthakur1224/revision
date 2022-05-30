@@ -1,5 +1,5 @@
 const express=require('express');
-const Countries = require('../models/createCity');
+const Countries = require('../models/addCountry');
 const router=express.Router()
 
 router.post("", async (req,res,err)=>{
