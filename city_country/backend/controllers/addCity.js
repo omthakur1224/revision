@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const express=require("express");
-const Countries = require("./addCountry");
+const Countries = require("../models/addCountry");
 
 const router=express.Router();
 

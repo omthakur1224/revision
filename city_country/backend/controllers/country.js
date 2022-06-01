@@ -22,6 +22,6 @@ catch(err){
     console.log("data is not added")
 }
 })
-
+// router.delete('')
 
 module.exports=router;

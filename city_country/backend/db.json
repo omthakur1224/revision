@@ -1,5 +1,5 @@
 {
-  "add-country": [
+  "add-countries": [
     {
       "name": "india",
       "city": [
@@ -14,7 +14,7 @@
       "name": "india",
       "city": [
         {
-          "city": "mumbai",
+          "city": "banglore",
           "population": 10000000
         }
       ],
@@ -29,6 +29,126 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Russia",
+      "city": [
+        {
+          "city": "xer",
+          "population": 10000000
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Russia",
+      "city": [
+        {
+          "city": "ukeria",
+          "population": 36666666
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Russia",
+      "city": [
+        {
+          "city": "iniit",
+          "population": 36666666
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "United State",
+      "city": [
+        {
+          "city": "chamba",
+          "population": 3445567
+        }
+      ],
+      "id": 7
+    },
+    {
+      "name": "United State",
+      "city": [
+        {
+          "city": "tissa",
+          "population": 3445567
+        }
+      ],
+      "id": 8
+    },
+    {
+      "name": "United State",
+      "city": [
+        {
+          "city": "morrokko",
+          "population": 3445567
+        }
+      ],
+      "id": 9
+    },
+    {
+      "name": "Japan",
+      "city": [
+        {
+          "city": "morrokko",
+          "population": 3445567
+        }
+      ],
+      "id": 10
+    },
+    {
+      "name": "Japan",
+      "city": [
+        {
+          "city": "banjju",
+          "population": 3445567
+        }
+      ],
+      "id": 11
+    },
+    {
+      "name": "Japan",
+      "city": [
+        {
+          "city": "charda",
+          "population": 3445567
+        }
+      ],
+      "id": 12
+    },
+    {
+      "name": "india",
+      "city": [
+        {
+          "city": "baghei",
+          "population": 567839
+        }
+      ],
+      "id": 13
+    },
+    {
+      "name": "india",
+      "city": [
+        {
+          "city": "nared",
+          "population": 312455
+        }
+      ],
+      "id": 14
+    },
+    {
+      "name": "india",
+      "city": [
+        {
+          "city": "nared",
+          "population": 312455
+        }
+      ],
+      "id": 15
     }
   ]
 }
