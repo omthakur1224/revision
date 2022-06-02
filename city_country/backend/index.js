@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.post('/add-city',(req,res)=> { addCountry});
 app.post('/add-country',(req,res)=> { addCountry});
-app.listen(8080, async function(){
+app.listen(3404, async function(){
  
    try{
         await connect();

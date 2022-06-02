@@ -1,5 +1,5 @@
 {
-  "add-countries": [
+  "add-country": [
     {
       "name": "india",
       "city": [
@@ -149,6 +149,26 @@
         }
       ],
       "id": 15
+    },
+    {
+      "name": "india",
+      "city": [
+        {
+          "city": "nared",
+          "population": 312455
+        }
+      ],
+      "id": 16
+    },
+    {
+      "name": "india",
+      "city": [
+        {
+          "city": "nared",
+          "population": 312455
+        }
+      ],
+      "id": 17
     }
   ]
 }

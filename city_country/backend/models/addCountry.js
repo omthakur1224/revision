@@ -12,6 +12,6 @@ const country = new mongoose.Schema({
     "city":[city]
 })
 
-const Countries= mongoose.model('countries',country);
+const Countries= mongoose.model('add-country',country);
 
 module.exports=Countries

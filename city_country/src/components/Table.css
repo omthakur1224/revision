@@ -1,0 +1,26 @@
+.row{
+    display:flex;
+    justify-content:space-around;
+    
+}
+button{
+    border:none;
+    background-color: white;
+}
+tr{
+    text-align: left;
+    align-items: center;
+}
+td{
+    font-size: 20px;
+}
+tr{
+    border: 1px solid rgb(74, 78, 74);
+    border-right: none;
+    border-left: none;
+    /* table-layout: auto; */
+   
+}
+th{
+    background-color: bisque;
+}

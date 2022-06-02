@@ -4,7 +4,7 @@ const Countries = require("../models/addCountry");
 
 const router=express.Router();
 
-router.updata('/',async(req,res,err)=>{
+router.update('/',async(req,res,err)=>{
     
     const City= await Countries.findByIdAndUpdate(req.params.id,req.body,{useModifyAndUpdate:false})
     .then((res)=>{
