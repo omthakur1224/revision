@@ -1,28 +1,61 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import axios from 'axios'
 function Payment() {
+  const [order,setOrder]=useState({});
+  const [data,setData]=useState([]);
+  const handleChange=(e)=>{
+    // e.preventDefault();
+    setOrder({
+      "entity":"order",
+      "amount":e.target.value,
+      "amount_paid":0,
+      "amount_due":e.target.value,
+      "currency":"INR",
+      "receipt":Math.random()*100,
+      "status":"created",
+      "attempts":0,
+      "notes": {
+        "key1": "value1",
+        "key2": "value2",
+      }
+    })
+  console.log(order)
+  }
+const handleOrder=(e)=>{
+  e.preventDefault();
+  axios.post('http://localhost:2345/orders',order)
+  .then((res)=>{
+    console.log("data",res.data)
+    setData(res.data)
+  })
+ // setData(order)
+}
   return (
-    <>
-    <div>
-    <h1 id='h1'>100</h1>
-    </div>
+          <>
+          {/* {
+  "id":"order_DaZlswtdcn9UNV",
+  "entity":"order",
+  "amount":50000,
+  "amount_paid":0,
+  "amount_due":50000,
+  "currency":"INR",
+  "receipt":"Receipt #20",
+  "status":"created",
+  "attempts":0,
+  "notes": {
+    "key1": "value1",
+    "key2": "value2",
+  "created_at":1572502745
+} */}
+           <form action="" onSubmit={handleOrder}>
+             <input type="number" id='amt' placeholder='enter amount' onChange={handleChange}/>
+             <br />
+             <input type="submit" />
+             
+           </form>
 
-   
-
-    <div className="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_Jc60UfB4iAKbfO/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
-    <script>
-     { (function(){
-       
-        var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
-        // let h=d.getElementById('h1')
-        if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
-        // s.innnerHTML='h.value'
-        s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
-        rzp && rzp.init && rzp.init()}})()}
-    </script>
-  </div>
-      </>
-  )
+          </>
+        )
 }
 
 export default Payment
