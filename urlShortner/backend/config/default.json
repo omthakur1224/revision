@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://keshav:keshav@cluster0.ryt59.mongodb.net/urlShortner",
+  "mongoURI": "mongodb+srv://omthakur1224:om_123@cluster0.55but.mongodb.net/urlShortner",
   "baseUrl": "http://localhost:8000"
 }

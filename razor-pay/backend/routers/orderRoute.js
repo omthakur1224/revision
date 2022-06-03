@@ -20,7 +20,7 @@ router.post('/create',async(req,res,err)=>{
         }
     }
     catch(err){
-       return res.send("order failed")
+       return res.send("Enter valid amount")
     }
 })
 

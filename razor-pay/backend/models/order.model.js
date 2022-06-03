@@ -3,11 +3,10 @@ const mongoose=require('mongoose');
 const orderSchema= new mongoose.Schema({
     "amount": {type: Number,required: true},
     "amount_due": {type: Number,required: true},
-    "amount_paid": {type: Number,default: 0},
+    "amount_paid": {type: Number,default: "0"},
     "currency": {type: String,default: "INR"},
-    "receipt": {type:Number,default: Math.floor(Math.random()*(1000-1+1)+1)}
+    // "receipt": {type:Number,default:function() {return Math.floor(Math.random()*(1000-1+1)+1)}}
       }, {timestamps:true})
-
       const Order=mongoose.model('Order',orderSchema)
     module.exports=Order;
 // {

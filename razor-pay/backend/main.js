@@ -13,7 +13,6 @@ app.use('/orders',require('./routers/orderRoute'))
 let PORT=4444;
 app.listen(PORT,()=>{
    try{
-
        mongoose.connect(mongoURI)
        console.log('connection established')
    }
