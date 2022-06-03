@@ -7,16 +7,17 @@ import CheckOut from './components/CheckOut'
 function App() {
   const [count, setCount] = useState(0)
   const navigate=useNavigate();
-useEffect(()=>{
-  navigate("https://rzp.io/l/2uoNpVfUOw")
-},[])
+// useEffect(()=>{
+//   navigate("https://rzp.io/l/2uoNpVfUOw")
+// },[])
 
   return (
     <div className="App">
-      <Payment/>
+    
       {/* <Link to="https://rzp.io/l/2uoNpVfUOw">hi</Link> */}
       <Routes>
-        <Route path='/checkout' element={<CheckOut />}/>
+        <Route path='/' element={<Payment/>}/>
+        <Route path='/checkout/:id' element={<CheckOut />}/>
       </Routes>
     </div>
   )

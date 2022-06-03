@@ -4,7 +4,8 @@ import CheckOut from './CheckOut';
 import { Link, useNavigate } from 'react-router-dom';
 function Payment() {
   const [order,setOrder]=useState({});
-  const [data,setData]=useState([]);
+  const [data,setData]=useState({});
+  const navigate=useNavigate()
   const[rec,setRec]=useState("");
   const handleChange=(e)=>{
     // e.preventDefault();
@@ -21,7 +22,8 @@ function Payment() {
         console.log("data",res.data)
         setData(res.data);
         setRec(!rec);
-        alert(`order placed successfully \n Order ID : ,${res.data._id}`)
+        alert(`order placed successfully \n Order ID : ,${res.data._id}`);
+        navigate(`/checkout/${res.data._id}`,{replace:true});
       })}
       else{
         alert('enter valid amount');
@@ -31,10 +33,10 @@ function Payment() {
           <>
              <form action="" onSubmit={handleOrder}>
              <input type="number" id='amt' placeholder='enter amount' onChange={handleChange}/>
-             <br />
-             <input type="submit" />
+             <br/>
+             <input type="submit"/>
            </form>
-          {/* {rec?<Link to='/checkout'>{rec}</Link>:""} */}
+            {/* {rec?<Link to='/checkout'>{rec}</Link>:""} */}
           </>
         )
 }

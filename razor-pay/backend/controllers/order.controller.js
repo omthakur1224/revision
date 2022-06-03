@@ -20,5 +20,19 @@ const createOrder=async(req,res,err)=>{
                return res.send("order failed")
             }
 }
+const getSingleProduct=async(req,res,err)=>{
+  try{
+      const product= await Order.findOne(req.params)
+      if(product){
+        return  res.json(product)
+      }
+      else{
+       return   res.send("product fail")
+      }
+  }
+  catch(err){
+     return res.send("product failed")
+  }
+}
 
-module.exports=createOrder
+module.exports={createOrder,getSingleProduct}

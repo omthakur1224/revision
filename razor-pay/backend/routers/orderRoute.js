@@ -1,5 +1,4 @@
 const express=require('express');
-const createOrder = require('../controllers/order.controller');
 const Order = require('../models/order.model');
 const router=express.Router();
 // router.post('/create',)
@@ -24,4 +23,18 @@ router.post('/create',async(req,res,err)=>{
     }
 })
 
+router.get("/:id",async(req,res,err)=>{
+  try{
+      const product= await Order.findOne(req.params)
+      if(product){
+        return  res.send(product)
+      }
+      else{
+       return   res.send("product fail")
+      }
+  }
+  catch(err){
+     return res.send("product failed")
+  }
+})
 module.exports=router;
