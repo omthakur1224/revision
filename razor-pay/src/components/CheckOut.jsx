@@ -17,7 +17,7 @@ function CheckOut() {
     },[])
 
     const handleClick=()=>{
-        
+        console.log("clicked")
     }
   return (
     <div>
