@@ -9,7 +9,7 @@ const connect=()=>{
 }
 else {
     console.log("connection failed")
-}
+    }
 }
 
 module.exports=connect;
