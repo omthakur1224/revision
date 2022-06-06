@@ -36,8 +36,7 @@ function Payment() {
              <br/>
              <input type="submit"/>
            </form>
-            {/* {rec?<Link to='/checkout'>{rec}</Link>:""} */}
-          </>
+         </>
         )
 }
 
