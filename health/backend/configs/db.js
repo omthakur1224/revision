@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MongoUri="mongodb://localhost:27017"
+const MongoUri="mongodb://0.0.0.0:27017/health"
 
 const connect=()=>{
  let connection= mongoose.connect(MongoUri)

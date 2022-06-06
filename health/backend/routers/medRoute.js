@@ -1,10 +1,11 @@
 const express=require('express');
 const router=express.Router();
-
-router.get('/medicines',(req,res)=>{
-    const data=Medicine.find().exec().lean()
+const Medicine=require('../models/med')
+router.get('/medicines',async(req,res)=>{
+    const data= await Medicine.find().limit(5)
     if(data){
-        return res.json();
+        // console.log(data)
+        return res.json(data).send();
     }
     else{
         console.log("Data fetching error")
