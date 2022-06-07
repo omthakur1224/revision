@@ -6,7 +6,7 @@ const User=require('../models/user.model');
 // API to get all users
 router.get('/', async(req,res)=>{
     try{
-        const user= await User.find()
+        const user= await User.find().limit(100)
         if(user){
             res.status(200).json(user);
         }
