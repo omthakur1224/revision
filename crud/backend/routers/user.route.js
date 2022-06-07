@@ -69,8 +69,8 @@ router.patch('/:id/edit', async(req,res)=>{
 })
 
 //API to get addresses
-router.put('/:id/addresses/edit', async(req,res)=>{
-    console.log(req.params.id,"updatedbody")
+router.patch('/:id/addresses/edit', async(req,res)=>{
+    // console.log(req.params.id,"updatedbody")
     try{
         const user= await User.findByIdAndUpdate({_id:req.params.id},req.body,{new:true})
         // query format findOneAndUpdate({search param},{updation},{new:true,upsert:true})
