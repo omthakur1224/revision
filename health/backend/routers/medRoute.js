@@ -6,7 +6,7 @@ router.get('/medicines',async(req,res)=>{
     
     let order=req.body.order?req.body.order:"desc";
     let sortBy=req.body.sortBy?req.body.sortBy:"id";
-    let limit=req.body.limit?parseInt(req.body.limit):10;
+    let limit=req.body.limit?parseInt(req.body.limit):100;
     let skip=parseInt(req.body.skip);
 
     // const data= 
