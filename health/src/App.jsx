@@ -36,11 +36,12 @@ function App() {
   }
   return (
   <div>
-  <Collapse defaultActiveKey={[0]}>
-      <Panel header key='1'>
+  <Collapse defaultActiveKey={[0]} style={{width:"200px",height:"100px",marginLeft:"10px"}}>
+    <span>Filters</span>
+      <Panel header key='1' style={{display:"flex",width:"10px"}}>
          {
          filters.map((value,i)=>
-          <React.Fragment key={i}>
+          <React.Fragment key={i} >
               <Checkbox
               onChange={()=>handleChange(value.id)}
               type="checkbox"
@@ -50,7 +51,6 @@ function App() {
           </React.Fragment>
          )
          }
-
       </Panel>
 
   </Collapse>
