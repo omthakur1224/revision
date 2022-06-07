@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const MongoUri="mongodb://0.0.0.0:27017/usersDetail";
+const MongoUri="mongodb://0.0.0.0:27017/usersDetails";
 const connect=()=>{
     mongoose.connect(MongoUri)
     .then((res)=>console.log("Mongo connection established"))
