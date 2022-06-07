@@ -43,8 +43,27 @@ function App() {
 
   }
   return (
-            // <div style={{display:"flex",flexDirection:"row",flexWrap:"wrap"}}>
-                <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:'0,20px',margin:"auto"}}>
+            <>
+             <div style={{display:"flex",justifyContent:"space-around"}}>
+                 <div style={{display:"flex",gap:"20px"}}>
+                    <label >Filter</label>
+                    <select name="" id="">
+                        <option value="">Select</option>
+                        <option value="price">Price</option>
+                        <option value="rating">Rating</option>
+                        <option value="brand">Brand</option>
+                    </select>
+                </div>
+                <div style={{display:"flex",gap:"20px"}}>
+                    <label>Sort</label>
+                    <select name="" id="">
+                        <option value="">Select</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                 </div>
+            </div>   
+            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:'20px,0',marginLeft:"100px",marginTop:"20px"}}>
             {data.map((item,index)=>
                 <>
                 <div key={index} style={{width:'300px'}}>
@@ -61,6 +80,7 @@ function App() {
                 
             )}
             </div>
+            </>
             )
 }
 //   return (
