@@ -25,8 +25,7 @@ function Users() {
    <h1 style={{textAlign:'center'}}>User's list</h1>
    <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:'20px,0',marginLeft:"100px",marginTop:"20px"}}>
    {data.map((user,index)=>
-      
-        <Link to={`/${user._id}`} key={index}>
+    <Link to={`/users/${user._id}`} key={index}>
        <div   style={{width:'300px'}} onClick={()=>handleClick(user._id)}>
            <img src={user.image} alt="" style={{width:"300px",height:"200px"}}/>
            <h5 style={{display:"flex", justifyContent:"space-between"}}><span style={{fontWeight:"bold"}}>Name</span>{user.first_name}</h5>
@@ -35,7 +34,7 @@ function Users() {
            <p style={{display:"flex", justifyContent:"space-between"}}> <span  style={{fontWeight:"bold"}}>Mobile</span><span >{user.mobile}</span></p>
            <p style={{display:"flex", justifyContent:"space-between"}}><span  style={{fontWeight:"bold"}}>email</span>{user.email} </p>
        </div>
-        </Link>
+       </Link>
    )}
     </div>   
       

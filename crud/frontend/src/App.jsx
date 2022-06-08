@@ -4,14 +4,16 @@ import './App.css'
 import Users from './components/Users'
 import {Routes, Route} from 'react-router-dom'
 import UserDetail from './components/UserDetail'
+import Home from './components/Home'
 function App() {
  
   return (
     <>
-       
+      
     <Routes>
-     <Route path='/' element={ <Users/>}/>
-      <Route path='/:id' element={<UserDetail/>}/>
+      <Route path='/' element={<Home/>}/>
+     <Route path='/users' element={ <Users/>}/>
+      <Route path='/users/:id' element={<UserDetail/>}/>
     
     </Routes>
     
