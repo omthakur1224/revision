@@ -22,12 +22,12 @@ function Users() {
   return( 
   <>
    
-  
+   <h1 style={{textAlign:'center'}}>User's list</h1>
    <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:'20px,0',marginLeft:"100px",marginTop:"20px"}}>
    {data.map((user,index)=>
       
-        <Link to={`/:${user._id}`}>
-       <div  key={index} style={{width:'300px'}} onClick={()=>handleClick(user._id)}>
+        <Link to={`/${user._id}`} key={index}>
+       <div   style={{width:'300px'}} onClick={()=>handleClick(user._id)}>
            <img src={user.image} alt="" style={{width:"300px",height:"200px"}}/>
            <h5 style={{display:"flex", justifyContent:"space-between"}}><span style={{fontWeight:"bold"}}>Name</span>{user.first_name}</h5>
            {/* <p style={{display:"flex", justifyContent:"space-between"}}> <span>Company</span>{user.company}</p> */}
