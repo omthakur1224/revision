@@ -8,7 +8,7 @@ function Addresses() {
     const [address,setAddress]=useState([]);
     // console.log(id,"id")
     useEffect(()=>{
-      axios.get(`http://localhost:8888/users/${id}`)
+      axios.get(`http://localhost:8888/users/${id}/addresses/edit`)
       .then((res)=>{
         console.log(res.data.address,'response');
         setAddress(res.data.address);
@@ -22,7 +22,7 @@ function Addresses() {
             <h1>{e.address}</h1>
          </div>
      })
-     : <Link to={`users/${id}/addresses/add-address`}>add address</Link> }
+     : <Link to={`/users/${id}/addresses/add-address`}>add address</Link> }
     </>
   )
 }
