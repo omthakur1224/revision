@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 // import {params} from 'react-router-dom'
 const dataDetail = () =>{
-    
-  const {id}=useParams();
+    const {id}=useParams();
+  
     const [data,setData]=useState({});
     // console.log(id,"id")
     useEffect(()=>{
@@ -14,18 +14,22 @@ const dataDetail = () =>{
         setData(res.data);
       })
     
-    },[])
+    },[]);
+    const handleClick=()=>{
+
+    }
   return (
     <div>
 {/* <Link to={`/datas/${data._id}`} key={index}> */}
+{/* <span style={{fontWeight:"bold"}}>Name</span> */}
        <div   style={{width:'300px',margin:"auto"}} onClick={()=>handleClick(data._id)}>
            <img src={data.image} alt="" style={{width:"300px",height:"200px"}}/>
-           <h5 style={{display:"flex", justifyContent:"space-between"}}><span style={{fontWeight:"bold"}}>Name</span>{data.first_name}</h5>
+           <h1 style={{display:"flex", justifyContent:"center",textAlign:'center'}}>{data.first_name}</h1>
            {/* <p style={{display:"flex", justifyContent:"space-between"}}> <span>Company</span>{data.company}</p> */}
            <p style={{display:"flex", justifyContent:"space-between"}}> <span  style={{fontWeight:"bold"}}>Gender</span> <span >{data.gender}</span></p>
            <p style={{display:"flex", justifyContent:"space-between"}}> <span  style={{fontWeight:"bold"}}>Mobile</span><span >{data.mobile}</span></p>
            <p style={{display:"flex", justifyContent:"space-between"}}><span  style={{fontWeight:"bold"}}>email</span>{data.email} </p>
-           
+          <Link to={`/users/${id}/addresses`}>Addresses</Link>
        </div>
        {/* </Link>   */}
          </div>
