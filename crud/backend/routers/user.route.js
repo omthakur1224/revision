@@ -5,10 +5,13 @@ const User=require('../models/user.model');
 
 // API to get all users
 router.get('/', async(req,res)=>{
+    let page=req.query.page || 1;
+    let pageSize=req.query.size || 15;
     try{
-        const user= await User.find().limit(10)
+        const user= await User.find().skip((page-1)*pageSize).limit(pageSize).lean().exec();
+        const totalPages=Math.ceil((await User.find().countDocuments())/pageSize);
         if(user){
-            res.status(200).json(user);
+            res.status(200).send({user,totalPages,pageSize});
         }
         else{
             res.status(404).send('creation request failed')
