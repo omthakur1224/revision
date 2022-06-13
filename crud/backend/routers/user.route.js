@@ -69,25 +69,33 @@ router.patch('/:id/edit', async(req,res)=>{
 })
 
 //API to get addresses
-router.patch('/:id/addresses/edit', async(req,res)=>{
-    // console.log(req.params.id,"updatedbody")
+router.patch('/:id/addresses/edit', async(req,res,err)=>{
+    console.log(req.body,"updatedbody")
+    console.log(req.params,`param`);
+    let myquery=req.params.id;
+    let newquery={$push:{address:req.body}}
     try{
-        const user= await User.findByIdAndUpdate({_id:req.params.id},req.body,{new:true})
-        // query format findOneAndUpdate({search param},{updation},{new:true,upsert:true})
-        if(user){
-            // user.address={
-            //     "vill":"dehrog",
-            //     "po":"tikri"
+        const user= await User.updateOne(myquery,newquery,{new:true})
+
+        return res.send(user)
+            // if(user){
+            //     // user.address={
+            //     //     "vill":"dehrog",
+            //     //     "po":"tikri"
+            //     //}
+            //     console.log(user,'address')
+            //     return res.send(user);
+            //     next();
+                
             // }
-            console.log(user,'address')
-            res.send(user);
-        }
-        else{
-            res.send('user not found')
-        }
+            // else{
+            //     return  res.send('user not found')               
+            // }
     }
+        // query format findOneAndUpdate({search param},{updation},{new:true,upsert:true})     
+    
     catch(err){
-        res.send(400).send("External Error")
+      return  res.send("External Error",err)
     }
     
 })
