@@ -1,26 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function Users() {
     const [data,setData]=useState([]);
-
     const getData=async()=>{
-        await await axios.get('http://localhost:8888/users')
+        await axios.get(`http://localhost:8888/users`)
+        // await await axios.get('http://localhost:8888/users')
         .then((res)=>{
-          setData(res.data);
-          console.log(res.data)
+          setData(res.data.user);
+          console.log(res.data.user)
         })
     }
     useEffect(()=>{
         getData();
     },[])
-
+var page=1,size;
     const handleClick=(value)=>{
         console.log(value)
+         size=20;
+         page=page+1;
+         axios.get(`http://localhost:8888/users?page=${page}&size=${size}`)
+        .then((res)=>{
+          setData(res.data);
+          console.log(res.data)
+        //   useNavigate(`?page=${page}&size=${size}`,{redirect:true})
+        })
     }
   return( 
-  <>
+  <div>
    
    <h1 style={{textAlign:'center'}}>User's list</h1>
    <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:'20px,0',marginLeft:"100px",marginTop:"20px"}}>
@@ -37,8 +45,8 @@ function Users() {
        </Link>
    )}
     </div>   
-      
-    </>
+   {/* <button  onClick={()=>handleClick(-1)}>Prev</button> <button onClick={()=>handleClick(1)}>Next</button> */}
+   </div>
        ) 
            
   

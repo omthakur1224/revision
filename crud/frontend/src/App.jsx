@@ -7,14 +7,18 @@ import UserDetail from './components/UserDetail'
 import Home from './components/Home'
 import Addresses from './components/Addresses'
 import AddAddress from './components/AddAddress'
+import axios from 'axios'
+
+
+
 function App() {
- 
-  return (
+return (
     <>
       
     <Routes>
       <Route path='/' element={<Home/>}/>
      <Route path='/users' element={ <Users/>}/>
+     {/* <Route path='/users?page=1&size=15' element={ <Users/>}/> */}
       <Route path='/users/:id' element={<UserDetail/>}/>
       <Route path='/users/:id/addresses' element={<Addresses/>} />
       <Route path='/users/:id/addresses/add-address' element={<AddAddress/>} />

@@ -7,19 +7,21 @@ function App() {
   // const [count, setCount] = useState(0)
   
   const dispatch=useDispatch();
-
   const counter=useSelector((store)=>store.counter)
 
   const handleClick=(value)=>{
-    
+    if(counter>0){
       dispatch(addCount(value))
+      }
+    if(counter==0 && value==1){
+      dispatch(addCount(value))
+    }
   }
-
-  return (
+return (
     <div className="App">
-        <h1>Counter:{counter}</h1>
+        <h1>{counter}</h1>
         <button onClick={()=>handleClick(1)}>INC</button>
-        <button onClick={()=>handleClick(-1)}>DEC</button>
+        <button onClick={()=>handleClick(-1)} disabled={!counter?true:false}>DEC</button>
     </div>
   )
 }

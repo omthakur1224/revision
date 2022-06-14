@@ -8,6 +8,23 @@ router.get('/', async(req,res)=>{
     let page=req.query.page || 1;
     let pageSize=req.query.size || 15;
     try{
+        const user= await User.find();
+       
+        if(user){
+            res.status(200).send(user);
+        }
+        else{
+            res.status(404).send('creation request failed')
+        }
+    }
+    catch(err){
+        res.send(400).send("External error")
+    }
+})
+router.get('/', async(req,res)=>{
+    let page=req.query.page || 1;
+    let pageSize=req.query.size || 15;
+    try{
         const user= await User.find().skip((page-1)*pageSize).limit(pageSize).lean().exec();
         const totalPages=Math.ceil((await User.find().countDocuments())/pageSize);
         if(user){
@@ -78,7 +95,7 @@ router.patch('/:id/addresses/edit', async(req,res,err)=>{
     let myquery=req.params.id;
     let newquery={$push:{address:req.body}}
     try{
-        const user= await User.updateOne(myquery,newquery,{new:true})
+        const user= await User.updateOne(myquery,req.body)
 
         return res.send(user)
             // if(user){
@@ -91,7 +108,7 @@ router.patch('/:id/addresses/edit', async(req,res,err)=>{
             //     next();
                 
             // }
-            // else{
+            // else{                                                                                                       
             //     return  res.send('user not found')               
             // }
     }
