@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react'
 
@@ -19,9 +20,18 @@ function AddTask() {
             setTasks(res.data)})
         }
   return (
-    <div>
-      <input id="task" type="text" placeholder='Add task' onChange={handleChange}/>
-      <button type="text" onClick={handleClick}>+</button>
+    <div style={{"gap":"10px","display":"flex"}}>
+      <input id="task" type="text" placeholder='Add task' onChange={handleChange}style={{
+        "width":"80%",
+        "height":"30px"
+      }}/>
+      <button style={{
+        "width":"40px",
+        "height":"35px",
+        "outline":"none",
+        "border":"none",
+        "backgroundColor":"none"
+      }} type="text" onClick={handleClick}>+</button>
     </div>
   )
 }
