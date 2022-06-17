@@ -20,17 +20,20 @@ function AddTask() {
             setTasks(res.data)})
         }
   return (
-    <div style={{"gap":"10px","display":"flex"}}>
+    <div style={{"display":"flex"}}>
       <input id="task" type="text" placeholder='Add task' onChange={handleChange}style={{
         "width":"80%",
-        "height":"30px"
+        "height":"30px",
+        "margin":"10px"
       }}/>
       <button style={{
+        "margin":"1px",
         "width":"40px",
         "height":"35px",
         "outline":"none",
         "border":"none",
-        "backgroundColor":"none"
+        "backgroundColor":"white",
+        "fontSize":"50px"
       }} type="text" onClick={handleClick}>+</button>
     </div>
   )
