@@ -24,10 +24,10 @@ function AddTask() {
       <input id="task" type="text" placeholder='Add task' onChange={handleChange}style={{
         "width":"80%",
         "height":"30px",
-        "margin":"10px"
+        "marginLeft":"20px",
+        "marginTop":"10px"
       }}/>
       <button style={{
-        "margin":"1px",
         "width":"40px",
         "height":"35px",
         "outline":"none",
