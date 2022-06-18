@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 function AddTask() {
     const [text,setText]=useState({});
     const [tasks,setTasks]=useState([]);
+    // const [input,setInput]=useState("")
     const handleChange=(e)=>{
         const {id,value}=e.target;
         setText({
@@ -18,10 +19,11 @@ function AddTask() {
         .then((res)=>{
             console.log("response",res.data);
             setTasks(res.data)})
+            setText({task:""})
         }
   return (
     <div style={{"display":"flex"}}>
-      <input id="task" type="text" placeholder='Add task' onChange={handleChange}style={{
+      <input id="task" value={text.task===undefined ? "":text.task} type="text" placeholder='Add task' onChange={handleChange}style={{
         "width":"80%",
         "height":"30px",
         "marginLeft":"20px",

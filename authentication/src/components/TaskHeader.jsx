@@ -2,8 +2,8 @@ import React from 'react'
 
 function TaskHeader() {
   return (
-    <div>
-      <h1>ToDo List</h1>
+    <div style={{"width":"100%","height":"100px","backgroundColor":"skyblue","margin":"auto"}}>
+      <h1 style={{"paddingTop":"20px","textAlign":"center"}}>TODO LIST</h1>
     </div>
   )
 }
