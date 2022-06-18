@@ -14,13 +14,22 @@ function AddTask() {
             status:false
          })
     }
+    
+    //  const getData=()=>{
+    //   axios.get(`http://localhost:5555/todos?page=${page.current}&size=5`)
+    //   .then((res)=>{
+    //     console.log("res",res.data)
+    //     // setData(res.data)
+    //   })
+    //  }
     const handleClick=()=>{
-        axios.post('http://localhost:4444/tasks',text)
+        axios.post('http://localhost:5555/todos',text)
         .then((res)=>{
             console.log("response",res.data);
             setTasks(res.data)})
             setText({task:""})
-        }
+            // getData();
+          }
   return (
     <div style={{"display":"flex"}}>
       <input id="task" value={text.task===undefined ? "":text.task} type="text" placeholder='Add task' onChange={handleChange}style={{
