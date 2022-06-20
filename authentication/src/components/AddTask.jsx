@@ -23,7 +23,7 @@ function AddTask() {
     //   })
     //  }
     const handleClick=()=>{
-        axios.post('http://localhost:5555/todos',text)
+        axios.post('http://localhost:5555/tasks',text)
         .then((res)=>{
             console.log("response",res.data);
             setTasks(res.data)})

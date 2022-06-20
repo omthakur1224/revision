@@ -3,17 +3,18 @@ import React, { useEffect } from 'react'
 import { useRef } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCount, addTodo, reduceCount } from '../redux/action';
+import { addCount, addTodo, nextPage, prevPage, reduceCount } from '../redux/action';
 import {Store} from '../redux/store'
 
 function TodoList() {
   let [data,setData]=useState([]);
-  let [count,setCount]=useState(1);
+  // let [count,setCount]=useState(1);
 
   const dispatch = useDispatch();
+  const page =useSelector((store)=>store.page);
   const counter=useSelector((store)=>store.counter);
   console.log(`counter`,counter);
-  let page=useRef(1);
+  // let page=useRef(1);
     useEffect(()=>{
     getData();
   },[])
@@ -41,7 +42,6 @@ function TodoList() {
   const handlePage=(val)=>{
     console.log('hello')
     if(page.current>1){
-
       // setCount((prev)=>prev+1)
       page.current=page.current+val;
       console.log(`page`,page.current);
@@ -58,7 +58,7 @@ function TodoList() {
   return (
     <div>
       {data.map((task)=>        
-          <ul  key={task._id} style={{
+          <div  key={task._id} style={{
             "display":"flex",
             "justifyContent":"space-around"
           }}>
@@ -68,12 +68,12 @@ function TodoList() {
             <span>{counter}</span>
             <button onClick={()=>{dispatch(addCount(1))}}>+</button>
           </div>
-          </ul>
+          </div>
       )}
-      <button onClick={()=>handlePage(-1)}>prev</button>
-      <button onClick={()=>handlePage(1)}>next</button>
+      <button disabled={page<2?true:false} onClick={()=>dispatch(prevPage(1))}>prev</button>
+      <span>{page}</span>
+      <button onClick={()=>dispatch(nextPage(1))}>next</button>
     </div>
   )
 }
-
 export default TodoList

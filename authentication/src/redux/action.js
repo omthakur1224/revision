@@ -1,4 +1,4 @@
-import { INC, ADD_TODO, DEC } from "./actionTypes.js";
+import { INC, ADD_TODO, DEC, NEXT, PREV } from "./actionTypes.js";
 
 export const addCount=(payload)=>{
     return {
@@ -20,5 +20,19 @@ export const addTodo=(payload)=>{
             title:payload,
             status:false
         }
+    }
+}
+
+export const nextPage=(payload)=>{
+    return {
+        type:NEXT,
+        payload
+    }
+}
+
+export const prevPage=(payload)=>{
+    return {
+        type:PREV,
+        payload
     }
 }

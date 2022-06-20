@@ -3,7 +3,8 @@ import { reducer } from "./reducer";
 
 const initState={
     todos:[],
-    counter:0
+    counter:0,
+    page:1
 }
 export const Store=createStore(reducer,initState);
 

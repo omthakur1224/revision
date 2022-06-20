@@ -24,6 +24,16 @@
       "task": "water",
       "status": false,
       "id": 5
+    },
+    {
+      "task": "party",
+      "status": false,
+      "id": 6
+    },
+    {
+      "task": "enjoy with friends",
+      "status": false,
+      "id": 7
     }
   ]
 }
