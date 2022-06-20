@@ -55,24 +55,34 @@ function TodoList() {
       console.log("res",res.data)
       setData(res.data)})
     }
+  const handleDelete=(id)=>{
+    axios.delete(`http://localhost:5555/tasks/${id}`)
+    .then((res)=>{
+      console.log("res",res.data)
+      getData();
+      // setData(res.data);
+      // getData();
+    })
+  }
   return (
     <div>
-      {data.map((task)=>        
-          <div  key={task._id} style={{
+      {data.map((task,index)=>        
+          <div  key={index} style={{
             "display":"flex",
             "justifyContent":"space-around"
           }}>
           <span>{task.task}</span>
-            <div key={task.id}>
+            <div>
               <button disabled={counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
               <span>{counter}</span>
               <button onClick={()=>{dispatch(addCount(1))}}>+</button>
             </div>
+            <button onClick={()=>handleDelete(task.id)}>X</button>
           </div>
       )}
       <button disabled={page<2?true:false} onClick={()=>dispatch(prevPage(1))}>prev</button>
       <span>{page}</span>
-      <button disabled={data.length<5?true:false} onClick={()=>dispatch(nextPage(1))}>next</button>
+      <button disabled={data.length<5 && data.length==0?true:false} onClick={()=>dispatch(nextPage(1))}>next</button>
     </div>
   )
 }
