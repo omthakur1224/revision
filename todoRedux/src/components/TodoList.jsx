@@ -47,10 +47,10 @@ function TodoList() {
   console.log(`counter`,counter);
   useEffect(()=>{
     getData();
-  },[])
+  },[page])
   
   const getData=()=>{
-    axios.get(`http://localhost:5555/tasks?page=${page.current}&size=${5}`)
+    axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
     .then((res)=>{
       console.log("res",res.data)
       setData(res.data)})
@@ -63,16 +63,16 @@ function TodoList() {
             "justifyContent":"space-around"
           }}>
           <span>{task.task}</span>
-          <div>
-            <button disabled={counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
-            <span>{counter}</span>
-            <button onClick={()=>{dispatch(addCount(1))}}>+</button>
-          </div>
+            <div key={task.id}>
+              <button disabled={counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
+              <span>{counter}</span>
+              <button onClick={()=>{dispatch(addCount(1))}}>+</button>
+            </div>
           </div>
       )}
       <button disabled={page<2?true:false} onClick={()=>dispatch(prevPage(1))}>prev</button>
       <span>{page}</span>
-      <button onClick={()=>dispatch(nextPage(1))}>next</button>
+      <button disabled={data.length<5?true:false} onClick={()=>dispatch(nextPage(1))}>next</button>
     </div>
   )
 }

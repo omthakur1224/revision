@@ -6,6 +6,7 @@ const initState={
     counter:0,
     page:1
 }
+
 export const Store=createStore(reducer,initState);
 
 Store.subscribe(()=>{
