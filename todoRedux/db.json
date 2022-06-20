@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "task": "Morning Walk",
+      "status": false,
+      "id": 1
+    },
+    {
+      "task": "lunch",
+      "status": false,
+      "id": 2
+    },
+    {
+      "task": "break",
+      "status": false,
+      "id": 3
+    },
+    {
+      "task": "Tea",
+      "status": false,
+      "id": 4
+    },
+    {
+      "task": "water",
+      "status": false,
+      "id": 5
+    },
+    {
+      "task": "party",
+      "status": false,
+      "id": 6
+    },
+    {
+      "task": "enjoy with friends",
+      "status": false,
+      "id": 7
+    }
+  ]
+}
