@@ -2,17 +2,18 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useRef } from 'react';
 import { useState } from 'react';
-import { addCount, addTodo } from '../redux/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCount, addTodo, reduceCount } from '../redux/action';
 import {Store} from '../redux/store'
-// import useDispatch from 'redux';
+
 function TodoList() {
   let [data,setData]=useState([]);
   let [count,setCount]=useState(1);
 
-  // const dispatch = useDispatch();
-  
-  let page=useRef(1)
-
+  const dispatch = useDispatch();
+  const counter=useSelector((store)=>store.counter);
+  console.log(`counter`,counter);
+  let page=useRef(1);
     useEffect(()=>{
     getData();
   },[])
@@ -23,19 +24,19 @@ function TodoList() {
       console.log("res",res.data)
       setData(res.data)})
    }
-  const handleCount=(val)=>{
-    if(count>0){
+  // const handleCount=(val)=>{
+  //   if(count>0){
 
-      // setCount((prev)=>prev+1)
-      addCount(val)
-      console.log(Store.getState())
-    }
-    if(count==0 && val==1){
-      // setCount((prev)=>prev+1)
-      addCount(val)
-      console.log(Store.getState())
-    }
-  }
+  //     // setCount((prev)=>prev+1)
+  //     dis(addCount(val))
+  //     console.log(Store.getState())
+  //   }
+  //   if(count==0 && val==1){
+  //     // setCount((prev)=>prev+1)
+  //     addCount(val)
+  //     console.log(Store.getState())
+  //   }
+  // }
 
   const handlePage=(val)=>{
     console.log('hello')
@@ -63,9 +64,9 @@ function TodoList() {
           }}>
           <span>{task.task}</span>
           <div>
-            <button onClick={()=>handleCount(-1)}>-</button>
-            <span>{count}</span>
-            <button onClick={()=>handleCount(1)}>+</button>
+            <button disabled={counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
+            <span>{counter}</span>
+            <button onClick={()=>{dispatch(addCount(1))}}>+</button>
           </div>
           </ul>
       )}
