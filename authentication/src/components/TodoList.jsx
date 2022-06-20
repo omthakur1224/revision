@@ -1,12 +1,16 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useRef } from 'react';
-import { useState } from 'react'
-
+import { useState } from 'react';
+import { addCount, addTodo } from '../redux/action';
+import {Store} from '../redux/store'
+// import useDispatch from 'redux';
 function TodoList() {
   let [data,setData]=useState([]);
   let [count,setCount]=useState(1);
-  // let [page,setPage]=useState(1);
+
+  // const dispatch = useDispatch();
+  
   let page=useRef(1)
 
     useEffect(()=>{
@@ -14,7 +18,7 @@ function TodoList() {
   },[])
 
    const getData=()=>{
-    axios.get(`http://localhost:5555/todos?page=${page.current}&size=5`)
+    axios.get(`http://localhost:5555/tasks?page=${page.current}&size=${5}`)
     .then((res)=>{
       console.log("res",res.data)
       setData(res.data)})
@@ -22,10 +26,14 @@ function TodoList() {
   const handleCount=(val)=>{
     if(count>0){
 
-      setCount((prev)=>prev+1)
+      // setCount((prev)=>prev+1)
+      addCount(val)
+      console.log(Store.getState())
     }
     if(count==0 && val==1){
-      setCount((prev)=>prev+1)
+      // setCount((prev)=>prev+1)
+      addCount(val)
+      console.log(Store.getState())
     }
   }
 
