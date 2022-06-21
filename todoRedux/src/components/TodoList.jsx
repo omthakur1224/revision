@@ -8,7 +8,8 @@ import {Store} from '../redux/store'
 
 function TodoList() {
   let [count,setCount]=useState(1);
-  
+  const data =useSelector((Store)=>Store.data)
+  // const getData=useSelector((Store)=>Store.getData)
   // let page=useRef(1);
 //   const handleCount=(val)=>{
 //     if(count>0){
@@ -40,21 +41,22 @@ function TodoList() {
 //     getData();
 //   }
 // }
-  let [data,setData]=useState([]);
+  // let [data,setData]=useState([]);
   const dispatch = useDispatch();
   const page =useSelector((store)=>store.page);
   const counter=useSelector((store)=>store.counter);
-  console.log(`counter`,counter);
-  useEffect(()=>{
-    getData();
-  },[page])
   
-  const getData=()=>{
-    axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
-    .then((res)=>{
-      console.log("res",res.data)
-      setData(res.data)})
-    }
+  console.log(`counter`,counter);
+  // useEffect(()=>{
+  //   getData();
+  // },[page])
+  
+  // const getData=()=>{
+  //   axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
+  //   .then((res)=>{
+  //     console.log("res",res.data)
+  //     setData(res.data)})
+  //   }
   const handleDelete=(id)=>{
     axios.delete(`http://localhost:5555/tasks/${id}`)
     .then((res)=>{

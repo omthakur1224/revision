@@ -1,16 +1,3 @@
 {
-  "tasks": [
-    {
-      "task": "Tea",
-      "status": false,
-      "count": 1,
-      "id": 2
-    },
-    {
-      "task": "nothing",
-      "status": false,
-      "count": 1,
-      "id": 3
-    }
-  ]
+  "tasks": []
 }
