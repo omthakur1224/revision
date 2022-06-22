@@ -7,9 +7,8 @@ import { Store } from '../redux/store';
 function AddTask() {
     const [text,setText]=useState({});
     const [tasks,setTasks]=useState([]);
-    const [data,setData]=useState([])
-    // const [input,setInput]=useState("")
     const page=useSelector((store)=>store.page);
+    // const [input,setInput]=useState("")
     
     const handleChange=(e)=>{
         const {id,value}=e.target;
