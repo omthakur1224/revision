@@ -4,16 +4,16 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import {Store} from '../redux/store.js'
 import { useDispatch, useSelector } from 'react-redux';
-import { addCount, addTodo, nextPage, prevPage, reduceCount } from '../redux/action';
-
+import { addCount, addTodo, nextPage, prevPage, reduceCount, getData} from '../redux/action';
+import thunk from 'redux-thunk'
 function TodoList() {
   // let [count,setCount]=useState(1);
-  var getData=()=>{
-    axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
-    .then((res)=>{
-      console.log("res",res.data)
-      setData(res.data)})
-    }
+  // var getData=()=>{
+  //   axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
+  //   .then((res)=>{
+  //     console.log("res",res.data)
+  //     setData(res.data)})
+  //   }
   
   // let page=useRef(1);
 //   const handleCount=(val)=>{
@@ -46,16 +46,17 @@ function TodoList() {
 //     getData();
 //   }
 // }
-  let [data,setData]=useState([]);
+  // let [data,setData]=useState([]);
   const dispatch = useDispatch();
   const page =useSelector((Store)=>Store.page);
-  const counter=useSelector((Store)=>Store.counter);
-  getData=useSelector(Store=>Store.getData);
-  data=useSelector(Store=>Store.data);
+  // const counter=useSelector((Store)=>Store.counter);
+  // getData=useSelector(Store=>Store.getData);
+  let data=useSelector(Store=>Store.data);
+  // let data;
   console.log(`data`,data);
   useEffect(()=>{
-    getData;
-  },[page])
+      dispatch(getData());
+  },[])
   
   // const handleDelete=(id)=>{
   //   axios.delete(`http://localhost:5555/tasks/${id}`)

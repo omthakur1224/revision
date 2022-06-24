@@ -1,5 +1,5 @@
 // import { addTodo,addCount } from "./action";
-import { INC, ADD_TODO, DEC, NEXT, PREV } from "./actionTypes.js";
+import { INC, ADD_TODO, DEC, NEXT, PREV, DATA } from "./actionTypes.js";
 
 export const reducer=(store,action)=>{
 
@@ -14,6 +14,8 @@ export const reducer=(store,action)=>{
             return {...store,page:store.page + action.payload};
         case PREV:
             return {...store,page:store.page - action.payload}
+        case DATA:
+            return {...store,data:[...store.data,action.payload]}        
         default:
             return store;
     }
