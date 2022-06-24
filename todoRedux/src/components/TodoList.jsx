@@ -2,12 +2,18 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useRef } from 'react';
 import { useState } from 'react';
+import {Store} from '../redux/store.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { addCount, addTodo, nextPage, prevPage, reduceCount } from '../redux/action';
-import {Store} from '../redux/store'
 
 function TodoList() {
-  let [count,setCount]=useState(1);
+  // let [count,setCount]=useState(1);
+  var getData=()=>{
+    axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
+    .then((res)=>{
+      console.log("res",res.data)
+      setData(res.data)})
+    }
   
   // let page=useRef(1);
 //   const handleCount=(val)=>{
@@ -42,28 +48,24 @@ function TodoList() {
 // }
   let [data,setData]=useState([]);
   const dispatch = useDispatch();
-  const page =useSelector((store)=>store.page);
-  const counter=useSelector((store)=>store.counter);
-  console.log(`counter`,counter);
+  const page =useSelector((Store)=>Store.page);
+  const counter=useSelector((Store)=>Store.counter);
+  getData=useSelector(Store=>Store.getData);
+  data=useSelector(Store=>Store.data);
+  console.log(`data`,data);
   useEffect(()=>{
-    getData();
+    getData;
   },[page])
   
-  const getData=()=>{
-    axios.get(`http://localhost:5555/tasks?_page=${page}&_limit=5`)
-    .then((res)=>{
-      console.log("res",res.data)
-      setData(res.data)})
-    }
-  const handleDelete=(id)=>{
-    axios.delete(`http://localhost:5555/tasks/${id}`)
-    .then((res)=>{
-      console.log("res",res.data)
-      getData();
-      // setData(res.data);
-      // getData();
-    })
-  }
+  // const handleDelete=(id)=>{
+  //   axios.delete(`http://localhost:5555/tasks/${id}`)
+  //   .then((res)=>{
+  //     console.log("res",res.data)
+  //     getData();
+  //     // setData(res.data);
+  //     // getData();
+  //   })
+  // }
   return (
     <div>
       {data.map((task,index)=>        
@@ -73,8 +75,8 @@ function TodoList() {
           }}>
           <span>{task.task}</span>
             <div>
-              <button disabled={counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
-              <span>{counter}</span>
+              <button disabled={task.counter>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
+              <span>{task.counter}</span>
               <button onClick={()=>{dispatch(addCount(1))}}>+</button>
             </div>
             <button onClick={()=>handleDelete(task.id)}>X</button>
