@@ -1,23 +1,23 @@
 // import { addTodo,addCount } from "./action";
+// import { Store } from "./Store.js";
 import { INC, ADD_TODO, DEC, NEXT, PREV, DATA } from "./actionTypes.js";
-
-export const reducer=(store,action)=>{
+export const reducer=(Store,action)=>{
 
     switch(action.type){
         case INC:
-            return {...store,counter:store.counter + action.payload};
-        case ADD_TODO:
-            return {...store,todos:[...store.todos,action.payload]};
+            return {...Store,counter:Store.counter + action.payload};
         case DEC:
-            return{...store,counter:store.counter - action.payload};
+            return{...Store,counter:Store.counter - action.payload};
+        case ADD_TODO:
+                    return {...Store,todos:[...Store.todos,action.payload]};
         case NEXT:
-            return {...store,page:store.page + action.payload};
+            return {...Store,page:Store.page + action.payload};
         case PREV:
-            return {...store,page:store.page - action.payload}
+            return {...Store,page:Store.page - action.payload};
         case DATA:
-            return {...store,data:[...store.data,action.payload]}        
+            return {...Store, data:action.payload};
         default:
-            return store;
+            return Store;
     }
 
 }

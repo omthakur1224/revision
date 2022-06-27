@@ -16,9 +16,10 @@ var page;
 //   })
 //   }
 //  getData();
-export const initState={
+export const initState=
+{
     todos:[],
-    counter:0,
+    // counter:0,
     page:1,
     data:[],
     // getData:getData()

@@ -1,7 +1,8 @@
 import { INC, ADD_TODO, DEC, NEXT, PREV, DATA } from "./actionTypes.js";
-import { initState } from "./store.js";
+import { initState, Store } from "./store.js";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import thunk from "redux-thunk";
 // const dispatch=useDispatch();
 export const addCount=(payload)=>{
     return {
@@ -27,6 +28,7 @@ export const addTodo=(payload)=>{
 }
 
 export const nextPage=(payload)=>{
+    
     return {
         type:NEXT,
         payload
@@ -45,9 +47,18 @@ export const storeData=(payload)=>{
         payload
     }
 }
+
 export const getData=()=>(dispatch)=>{
-    fetch(`http://localhost:5555/tasks?_page=${initState.page}&_limit=5`)
-  .then((res)=>{res.json()})
-  .then((res)=>{dispatch(storeData(res))})
+    console.log("store.page",Store.getState().page)
+    const Page=Store.getState().page;
+    fetch(`http://localhost:5555/tasks?_page=${Page}&_limit=5`)
+    // fetch(`http://localhost:5555/tasks`)
+  .then((res)=>{
+       return res.json();
+    })
+    .then((res)=>{
+    dispatch(storeData(res))
+    console.log("json",res)    
+})
   .catch((err)=>console.log(err))
 }
