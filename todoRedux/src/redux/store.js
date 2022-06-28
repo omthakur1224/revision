@@ -18,13 +18,11 @@ var page;
 //  getData();
 export const initState=
 {
-    todos:[],
-    // counter:0,
     page:1,
     data:[],
     // getData:getData()
   }
-  // console.log(`data`,Data);
+// console.log(`data`,Data);
 // useEffect(()=>{
 //     getData();
 //   },[])

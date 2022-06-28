@@ -1,46 +1,40 @@
 {
   "tasks": [
     {
-      "task": "Tea",
+      "task": "go to market",
       "status": false,
       "count": 1,
       "id": 1
     },
     {
-      "task": "Tea",
+      "task": "morning walk",
       "status": false,
-      "count": 1,
+      "count": 5,
       "id": 2
     },
     {
-      "task": "nothing",
+      "task": "study",
       "status": false,
       "count": 1,
       "id": 3
     },
     {
-      "task": "fghf",
+      "task": "Tea",
       "status": false,
       "count": 1,
       "id": 4
     },
     {
-      "task": "jim",
+      "task": "Home work",
       "status": false,
       "count": 1,
       "id": 5
     },
     {
-      "task": "morning walk",
+      "task": "Lunch",
       "status": false,
       "count": 1,
       "id": 6
-    },
-    {
-      "task": "IT",
-      "status": false,
-      "count": 1,
-      "id": 7
     }
   ]
 }

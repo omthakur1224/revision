@@ -5,7 +5,10 @@ export const reducer=(Store,action)=>{
 
     switch(action.type){
         case INC:
-            return {...Store,counter:Store.counter + action.payload};
+            return {...Store,
+                data:Store.data.map((el)=>
+                el.id==action.payload?{...el,count:el.count+1}:el
+                )};
         case DEC:
             return{...Store,counter:Store.counter - action.payload};
         case ADD_TODO:

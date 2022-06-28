@@ -20,15 +20,42 @@ function TodoList() {
     },[])
     // dispatch(storeData(data));
   
-  // const handleDelete=(id)=>{
-    //   axios.delete(`http://localhost:5555/tasks/${id}`)
-    //   .then((res)=>{
-      //     console.log("res",res.data)
-      //     getData();
-      //     // setData(res.data);
-      //     // getData();
-      //   })
-      // }
+  const handleDelete=(id)=>{
+      axios.delete(`http://localhost:5555/tasks/${id}`)
+      .then((res)=>{
+          console.log("res",res.data)
+          dispatch(getData());
+           })
+      }
+      const handleIncrement=(id,count)=>{
+        fetch(`http://localhost:5555/tasks/${id}`,{  
+                method: "PATCH",  
+                headers: {"Content-type": "application/json"}, 
+                body: JSON.stringify({count:count+1}
+                )})
+                .then(response => {console.log(response.status); 
+                return response.json();  
+                })  
+                .then(data => {
+                  //for getting updated data
+                  dispatch(getData());
+                  console.log(data,"data")}
+        );}
+        const handleDecrement=(id,count)=>{
+
+          fetch(`http://localhost:5555/tasks/${id}`,{  
+                  method: "PATCH",  
+                  headers: {"Content-type": "application/json"}, 
+                  body: JSON.stringify({count:count-1}
+                  )})
+                  .then(response => {console.log(response.status); 
+                  return response.json();
+                  })  
+                  .then(data => {
+                    //for getting updated data
+                    dispatch(getData());
+                    console.log(data,"data")}
+          );}
       return (
         <div>
       {data.map((task,index)=>        
@@ -38,11 +65,13 @@ function TodoList() {
           }}>
           <span>{task.task}</span>
             <div>
-              <button disabled={task.count>0?false:true} onClick={()=>{dispatch(reduceCount(1))}}>-</button>
+              {/* count decrement button */}
+              <button disabled={task.count>0?false:true} onClick={()=>{handleDecrement(task.id,task.count)}}>-</button>
               <span>{task.count}</span>
-              <button onClick={()=>{
-                dispatch(addCount(1));
-                }}>+</button>
+
+            {/* count increment button */}
+              <button onClick={()=>{handleIncrement(task.id,task.count)}}>+</button>
+
             </div>
             <button onClick={()=>handleDelete(task.id)}>X</button>
           </div>

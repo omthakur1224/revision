@@ -32,10 +32,13 @@ function AddTask() {
         axios.post('http://localhost:5555/tasks',text)
         .then((res)=>{
             console.log("response",res.data);
-            setTasks(res.data)});
+            setTasks(res.data)
+          })
+          .then((res)=>{
             setText({task:""});
+            dispatch(getData());
+          })
             // getData();
-            dispatch(getData())
           }
   return (
     <div style={{"display":"flex"}}>
