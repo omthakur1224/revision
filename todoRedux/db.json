@@ -1,15 +1,9 @@
 {
   "tasks": [
     {
-      "task": "go to market",
-      "status": false,
-      "count": 1,
-      "id": 1
-    },
-    {
       "task": "morning walk",
       "status": false,
-      "count": 5,
+      "count": 4,
       "id": 2
     },
     {
