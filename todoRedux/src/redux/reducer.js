@@ -1,5 +1,3 @@
-// import { addTodo,addCount } from "./action";
-// import { Store } from "./Store.js";
 import { INC, ADD_TODO, DEC, NEXT, PREV, DATA } from "./actionTypes.js";
 export const reducer=(Store,action)=>{
 

@@ -49,16 +49,21 @@ export const storeData=(payload)=>{
 }
 
 export const getData=()=>(dispatch)=>{
-    console.log("store.page",Store.getState().page)
+
+    // console.log("store.page",Store.getState().page)
+
+    //Getting page number from store
     const Page=Store.getState().page;
+
+    // Data fetching along with Pagination 
     fetch(`http://localhost:5555/tasks?_page=${Page}&_limit=5`)
     // fetch(`http://localhost:5555/tasks`)
-  .then((res)=>{
-       return res.json();
-    })
     .then((res)=>{
-    dispatch(storeData(res))
-    console.log("json",res)    
-})
-  .catch((err)=>console.log(err))
+                return res.json();
+                })
+    .then((res)=>{
+                    dispatch(storeData(res))
+                    console.log("json",res)    
+                })
+    .catch((err)=>console.log(err))
 }
