@@ -1,13 +1,19 @@
 {
   "tasks": [
     {
-      "task": "morning walk",
+      "task": "Morning Walk",
       "status": false,
-      "count": 4,
+      "count": 1,
+      "id": 1
+    },
+    {
+      "task": "Home work",
+      "status": false,
+      "count": 1,
       "id": 2
     },
     {
-      "task": "study",
+      "task": "Evening Walk",
       "status": false,
       "count": 1,
       "id": 3
@@ -19,34 +25,16 @@
       "id": 4
     },
     {
-      "task": "Home work",
+      "task": "Lunch",
       "status": false,
       "count": 1,
       "id": 5
     },
     {
-      "task": "Lunch",
+      "task": "Revision",
       "status": false,
       "count": 1,
       "id": 6
-    },
-    {
-      "task": "Jim",
-      "status": false,
-      "count": 1,
-      "id": 7
-    },
-    {
-      "task": "IT",
-      "status": false,
-      "count": 3,
-      "id": 8
-    },
-    {
-      "task": "nothing",
-      "status": false,
-      "count": 2,
-      "id": 9
     }
   ]
 }
