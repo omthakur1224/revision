@@ -9,11 +9,14 @@
     "start": "json-server db.json --port 5555 --watch "
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.2",
+    "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.4",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "framer-motion": "^6.3.16",
     "install": "^0.13.0",
     "json-server": "^0.17.0",
     "npm": "^8.12.2",

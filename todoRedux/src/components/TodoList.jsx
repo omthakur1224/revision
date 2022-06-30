@@ -18,7 +18,7 @@ function TodoList() {
       },[])
 
   const handleDelete=(id)=>{
-      axios.delete(`http://localhost:5555/tasks/${id}`)
+      axios.delete(`http://localhost:5555/Todos/${id}`)
       .then((res)=>{
                   console.log("res",res.data)
                   dispatch(getData());
@@ -26,7 +26,7 @@ function TodoList() {
       }
 
       const handleIncrement=(id,count)=>{
-        fetch(`http://localhost:5555/tasks/${id}`,
+        fetch(`http://localhost:5555/Todos/${id}`,
               {  
 
                     method: "PATCH",  
@@ -51,7 +51,7 @@ function TodoList() {
 
 
       const handleDecrement=(id,count)=>{
-                fetch(`http://localhost:5555/tasks/${id}`,
+                fetch(`http://localhost:5555/Todos/${id}`,
                       {  
         
                             method: "PATCH",  
@@ -99,7 +99,7 @@ function TodoList() {
                       </div>
 
                       {/* task deletion button */}
-                      <button onClick={()=>handleDelete(task.id)}>X</button>
+                      <button onClick={()=>handleDelete(task._id)}>X</button>
 
                 </div>
             )}

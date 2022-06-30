@@ -56,8 +56,8 @@ export const getData=()=>(dispatch)=>{
     const Page=Store.getState().page;
 
     // Data fetching along with Pagination 
-    fetch(`http://localhost:5555/tasks?_page=${Page}&_limit=5`)
-    // fetch(`http://localhost:5555/tasks`)
+    fetch(`http://localhost:5555/Todos?page=${Page}&size=5`)
+    // fetch(`http://localhost:5555/Todos`)
     .then((res)=>{
                 return res.json();
                 })

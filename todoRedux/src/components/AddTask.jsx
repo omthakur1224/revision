@@ -21,7 +21,7 @@ function AddTask() {
     }
    
     const handlePost=()=>{
-        axios.post('http://localhost:5555/tasks',text)
+        axios.post('http://localhost:5555/Todos',text)
         .then((res)=>{
             console.log("response",res.data);
             setTasks(res.data)
