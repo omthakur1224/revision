@@ -6,5 +6,5 @@ const Todos=mongoose.Schema({
     count:{type:Number,default:1}
 })
 
-const Todo=mongoose.model('Todos',Todos)
-module.exports=Todo;
+
+module.exports= mongoose.model('Todos',Todos)

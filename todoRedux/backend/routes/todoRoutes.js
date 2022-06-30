@@ -7,8 +7,10 @@ const Todo=require('../models/todoModel');
 router.get('/todos', async(req,res)=>{
     let page=req.query.page || 1;
     let pageSize=req.query.size || 5;
+    // let Skip=req.body.page*pageSize;
     try{
-        const todo= await Todo.find().limit(pageSize);
+        const todo= await Todo.find()
+        .skip((page-1)*pageSize).limit(pageSize);
         if(todo){
             res.status(200).send(todo);
         }
@@ -43,18 +45,18 @@ router.post('/todos', async(req,res)=>{
     console.log(req.body,"body")
     const todo= await Todo.create(req.body)
     if(todo){
-        res.status(200).json(todo);
+       return  res.status(200).json(todo);
     }
     else{
-        res.status(404).send('creation request failed')
+      return   res.sendStatus(404).send('creation request failed')
     }
     
 })
 //API to get particular Todo by id
-router.get('/:id', async(req,res)=>{
+router.delete('/:id', async(req,res)=>{
     // console.log(req.params,"para")
     try{
-        const Todo= await Todo.findOne({_id:req.params.id})
+        const Todo= await Todo.DeleteOne({_id:req.params.id})
         if(Todo){
             res.status(200).json(Todo);
         }
