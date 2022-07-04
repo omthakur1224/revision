@@ -53,15 +53,15 @@ router.post('/todos', async(req,res)=>{
     
 })
 //API to get particular Todo by id
-router.delete('/:id', async(req,res)=>{
+router.delete('todos/:id', async(req,res)=>{
     // console.log(req.params,"para")
     try{
-        const Todo= await Todo.DeleteOne({_id:req.params.id})
-        if(Todo){
-            res.status(200).json(Todo);
+        const todo= await Todo.deleteOne({_id:req.params.id})
+        if(err){
+            return res.status(404).send('Todo not found');
         }
         else{
-            res.status(404).send('Todo not found')
+            return res.status(200).send({"status":"OK"});
         }
     }
     catch(err){

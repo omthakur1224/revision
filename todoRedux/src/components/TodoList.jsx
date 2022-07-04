@@ -75,16 +75,25 @@ function TodoList() {
                       }
 
     return (
-        <div>
+        <div style={{"paddingTop":"10px"}} >
           {/* {process.env.REACT_APP_DBURL} */}
             {data.map((task,index)=>        
-                <div  key={index} style={{ "display":"flex","justifyContent":"space-around"}}>
+                <div  key={index} style={{ "display":"flex",
+                "justifyContent":"space-between",
+                "padding":"10px 10px 0px 10px",
+               }}>
 
-                    <span>{task.task}</span>
+                    <span style={{"width":"50px",'textAlign':"left"}} >{task.task}</span>
 
                       <div>
                           {/* count decrement button */}
                             <button 
+                                  style={{
+                                    "outline":"none",
+                                    "border":"none",
+                                    "backgroundColor":"white",
+                                    "fontSize":"30px"      
+                                  }}
                                   disabled={task.count>0?false:true}
                                   onClick={()=>{handleDecrement(task.id,task.count)
                                   }}>
@@ -94,12 +103,29 @@ function TodoList() {
                             <span>{task.count}</span>
 
                             {/* count increment button */}
-                            <button onClick={()=>{handleIncrement(task.id,task.count)}}>+</button>
+                            <button onClick={()=>{handleIncrement(task.id,task.count)}}
+                                    style={{
+                                      "outline":"none",
+                                      "border":"none",
+                                      "backgroundColor":"white",
+                                      "fontSize":"30px"   
+                                         
+                                    }}>+</button>
 
                       </div>
 
                       {/* task deletion button */}
-                      <button onClick={()=>handleDelete(task._id)}>X</button>
+                      <button onClick={()=>handleDelete(task._id)}
+                               style={{
+                                "outline":"none",
+                                "border":"none",
+                                "backgroundColor":"white",
+                                                      
+                              }}> <img
+                                       src="https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_262_icon-icons.com_61518.png" 
+                                       alt=""
+                                       style={{"width":"30px",
+                                       "height":"40px"}} /> </button>
 
                 </div>
             )}

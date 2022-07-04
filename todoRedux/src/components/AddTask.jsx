@@ -21,6 +21,7 @@ function AddTask() {
     }
    
     const handlePost=()=>{
+        if(text.task===undefined) return alert("You have not added any task");
         axios.post('http://localhost:5555/Todos',text)
         .then((res)=>{
             console.log("response",res.data);
@@ -54,7 +55,7 @@ function AddTask() {
                       "height":"35px",
                       "outline":"none",
                       "border":"none",
-                      "backgroundColor":"white",
+                      "backgroundColor":"skyblue",
                       "fontSize":"50px"
                      }} 
       >+</button>

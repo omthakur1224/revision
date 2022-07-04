@@ -9,7 +9,6 @@ function TodoApp() {
     <div >
       {/* <Nav/> */}
       <TaskHeader/>
-      <AddTask/>
       <TodoList/>
     </div>
   )
