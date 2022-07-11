@@ -1,3 +1,10 @@
+let counter=0;
+export function getData(){
+  console.log("network call :-",counter++)
+  
+    //  document.getElementById('debounce').innerHTML=counter;
+ }
+
 function debounce(fn,delay){
   var timer;
   return function(){
@@ -9,11 +16,6 @@ function debounce(fn,delay){
       },delay)
   }
  };
- let num=document.getElementById('name').value;
- let counter=0;
-function getData(){
-   console.log("network call :-",counter++)
-     
-  }
+//  let num=document.getElementById('name').value;
   // document.getElementById('name').addEventListener()
   const debouncing=debounce(getData,500);

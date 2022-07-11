@@ -76,14 +76,13 @@ function TodoList() {
 
     return (
         <div style={{"paddingTop":"10px"}} >
-          {/* {process.env.REACT_APP_DBURL} */}
+  
             {data.map((task,index)=>        
                 <div  key={index} style={{ "display":"flex",
                 "justifyContent":"space-between",
                 "padding":"10px 10px 0px 10px",
                }}>
-
-                    <span style={{"width":"50px",'textAlign':"left"}} >{task.task}</span>
+                <span style={{"width":"50px",'textAlign':"left"}} >{task.task}</span>
 
                       <div>
                           {/* count decrement button */}
@@ -111,7 +110,6 @@ function TodoList() {
                                       "fontSize":"30px"   
                                          
                                     }}>+</button>
-
                       </div>
 
                       {/* task deletion button */}
