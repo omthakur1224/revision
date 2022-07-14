@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import {Store} from '../redux/store.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { addCount, addTodo, nextPage, prevPage, reduceCount, getData, storeData} from '../redux/action';
-
 function TodoList() {
 
   const dispatch = useDispatch();
@@ -61,12 +60,12 @@ function TodoList() {
                             body: JSON.stringify({count:count-1}
         
                         )})
-                        .then(response => {
+                        // .then(response => {
         
-                                          // console.log(response.status); 
+                        //                   // console.log(response.status); 
         
-                                          return response.json();  
-                                        })  
+                        //                   return response.json();  
+                        //                 })  
                         .then(data => {
                                         //for getting updated data
                                         dispatch(getData());
@@ -83,10 +82,9 @@ function TodoList() {
                 "padding":"10px 10px 0px 10px",
                }}>
                 <span style={{"width":"50px",'textAlign':"left"}} >{task.task}</span>
-
                       <div>
                           {/* count decrement button */}
-                            <button 
+                            <button
                                   style={{
                                     "outline":"none",
                                     "border":"none",
@@ -119,11 +117,14 @@ function TodoList() {
                                 "border":"none",
                                 "backgroundColor":"white",
                                                       
-                              }}> <img
-                                       src="https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_262_icon-icons.com_61518.png" 
+                              }}> 
+                              {/* <img
+                                       src="../delete.png" 
                                        alt=""
                                        style={{"width":"30px",
-                                       "height":"40px"}} /> </button>
+                                       "height":"35px"}} />  */}
+                               X
+                      </button>
 
                 </div>
             )}

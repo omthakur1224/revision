@@ -1,0 +1,24 @@
+.main-nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+    background-color: rgb(108, 203, 226);
+}
+.logo-nav{
+    display: flex;
+    gap: 50px;
+     }
+.logo-nav>div{
+    margin: auto;
+}
+.logo-nav>div>img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(148, 165, 165);
+    /* border: 1px solid red; */
+}
+.list-div{
+    display: flex;
+    justify-content: space-around;
+}
