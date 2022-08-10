@@ -6,6 +6,7 @@ app.use(cors())
 app.use(express.json());
 
 app.use('/',require('./routes/todoRoutes'))
+app.use('/todos',require('./routes/todoRoutes'))
 // app.use('/Todos',require('./routes/todoRoutes'))
 const PORT=5555;
 app.listen(PORT, async (req,res)=>{
