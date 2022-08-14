@@ -7,13 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="">
    
+    <script src="debounce.js"></script>
 </head>
 <body>
-    <input style="margin-left:40%;" id="name" type="text" onkeyup="debouncing()">
+    <input style="margin-left:40%;" id="name" type="text" onkeyup="debouncing()"/>
     <!-- <input style="margin-left:40%;" id="name" type="text" onkeyup="throttling()"> -->
-    <div style="margin-left:30%; font-size: 20px;"><span>Total Network calls:-</span><span style="font-size: 30px;" id="debounce"></span></div>
+    <div style="margin-left:30%; font-size: 20px;">
+        <span >Total Network calls:-</span>
+        <span style="font-size: 30px;" id="debounce"></span>
+    </div>
     
-    <script src="./debounce.js"></script>
     <!-- <script src="./throttling.js"></script> -->
 
 </body>

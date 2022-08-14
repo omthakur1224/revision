@@ -2,7 +2,9 @@
 let str="omprakash";
     let start=0;
     let count=0;
+
     for(let i=1;i<=str.length;i++){
+        
         let box="";
         box+=str.substring(start,i);
         count++;

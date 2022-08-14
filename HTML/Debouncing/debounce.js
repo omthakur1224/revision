@@ -1,12 +1,12 @@
 let counter=0;
-export function getData(){
-  console.log("network call :-",counter++)
-  
-    //  document.getElementById('debounce').innerHTML=counter;
+ function getData(){
+ console.log("network call :-",counter++)
+ document.getElementById('debounce').innerHTML=counter;
+  return
  }
 
+ var timer;
 function debounce(fn,delay){
-  var timer;
   return function(){
       var args=arguments;
       timer && clearTimeout(timer);
@@ -18,4 +18,4 @@ function debounce(fn,delay){
  };
 //  let num=document.getElementById('name').value;
   // document.getElementById('name').addEventListener()
-  const debouncing=debounce(getData,500);
+ const debouncing=debounce(getData,500);
