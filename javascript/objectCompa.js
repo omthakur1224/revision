@@ -1,2 +1,2 @@
-const {name:om} ={name:tarun}
+const {name}={name:"tarun"}
 console.log(name);
