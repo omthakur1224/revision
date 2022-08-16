@@ -42,12 +42,12 @@ console.log(data,"data")
         <input type='text' 
         placeholder={'name'} 
         className='name' 
-        onChange={handleChange}/>
+        onChange={handleChange} required/>
 
         <input type='email' 
         placeholder={'email'} 
         className='email' 
-        onChange={handleChange}/>
+        onChange={handleChange} required/>
        
 
         <div className='gender' style={{"display":"flex","gap":"20px"}}>
